@@ -471,8 +471,18 @@
       "version": 1
     },
     "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "fix_passive_vals": false,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 0,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
+    "spice_adjust_passive_values": false,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -485,6 +495,10 @@
     [
       "6d75b15b-3f94-441d-8633-e669895d332e",
       ""
+    ],
+    [
+      "9a2b9a64-9272-4248-ae5b-8c6a1a56e6b5",
+      "Power Regulator"
     ]
   ],
   "text_variables": {}
