@@ -1,4 +1,4 @@
-name: Push-CICD-Comtrol
+name: Push-CICD-Control
 
 on:
   push:
