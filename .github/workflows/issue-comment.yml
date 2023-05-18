@@ -17,12 +17,11 @@ jobs:
     steps:
       - name: Create comment with API
         run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-            -f body='Me too' 
+          ISSUE_NUMBER=$(jq --raw-output .issue.number $GITHUB_EVENT_PATH)
+          COMMENT="Thank you for opening this issue! We will look into it."
+          API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments"
+          RESPONSE=$(curl -sSL -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type: application/json" -d "{\"body\":\"$COMMENT\"}" $API_URL)
+          echo "Comment added to issue $ISSUE_NUMBER"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.organization.login }}
