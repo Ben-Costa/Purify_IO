@@ -20,7 +20,7 @@ jobs:
           ISSUE_NUMBER=$(jq --raw-output .issue.number $GITHUB_EVENT_PATH)
           COMMENT="Thank you for opening this issue! We will look into it."
           API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments"
-          RESPONSE=$(curl -sSL -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type: application/json" -d "{\"body\":\"$COMMENT\"}" $API_URL)
+          RESPONSE=$(curl -sSL -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type: application/json" -d "{\"body\":\"$COMMENT\"}" $API_URL)
           echo "Comment added to issue $ISSUE_NUMBER"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
