@@ -22,7 +22,7 @@ jobs:
   #CI Build
   build: 
     if: ${{ always() }}
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
@@ -45,7 +45,7 @@ jobs:
   #Lint
   Lint:
     if: ${{ github.event_name != 'schedule' }}
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Print hello
         run: echo "Hi"
@@ -126,14 +126,14 @@ jobs:
   #PR extra-> validate documentation added, increment version, add info based on files
   PR_Tasks:
     if: github.event_name == 'pull_request'
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Print 3
         run: echo "3"
   #integration testing pipeline
   Integration_Tests:
     if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master'
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Print 3
         run: echo "3"
