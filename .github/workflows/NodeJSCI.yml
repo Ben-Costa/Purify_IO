@@ -28,19 +28,19 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
     steps:
       - name: Print hello
-      - run: echo "Hi"
+        run: echo "Hi"
       #checkout      
       - name: Checkout Repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       #Dependency managment
       - name: Install Dependencies
-      - run: npm ci
+        run: npm ci
       #Run internal build
       - name: Build Package
-      - run: npm run build --if-present      
+        run: npm run build --if-present      
       #test
       - name: Run Unit Tests
-      - run: npm test
+        run: npm test
   
   #Lint
   Lint:
@@ -48,7 +48,7 @@ jobs:
     runs-on: unbuntu-latest
     steps:
       - name: Print hello
-      - run: echo "Hi"
+        run: echo "Hi"
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -79,7 +79,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [  ]
+        language: [ 'javascript-typescript' ]
         # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
         # Use only 'java-kotlin' to analyze code written in Java, Kotlin or both
         # Use only 'javascript-typescript' to analyze code written in JavaScript, TypeScript or both
@@ -129,12 +129,12 @@ jobs:
     runs-on: unbuntu-latest
     steps:
       - name: Print 3
-      - run: echo "3"
+        run: echo "3"
   #integration testing pipeline
   Integration_Tests:
     if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master'
     runs-on: unbuntu-latest
     steps:
       - name: Print 3
-      - run: echo "3"
+        run: echo "3"
     
