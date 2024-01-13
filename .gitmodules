@@ -1,0 +1,3 @@
+[submodule "pcb/lib/atl"]
+	path = pcb/lib/atl
+	url = git@github.com:Aerosol-Technology-Lab/ATL-KiCad-Library.git
